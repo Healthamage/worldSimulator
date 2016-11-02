@@ -40,9 +40,7 @@ void draw()
 
 void keyPressed()
 {
-  if(messageAcc > messageInterval)
-  {
-    messageAcc = 0;
+  
         if (keyAnalyzer(key).compareTo("LETTER") == 0 || keyAnalyzer(key).compareTo("NUMBER") == 0 || key == ' ')
         {
             console.addChar(key);
@@ -52,10 +50,14 @@ void keyPressed()
             console.deleteChar();
         }
         if(keyCode == ENTER){
-          c.write(console.readString() + "\n");
-          console.reset();
+          if(messageAcc > messageInterval)
+          {
+            messageAcc = 0;
+            c.write(console.readString() + "\n");
+            console.reset();
+          }
         }
-  }
+  
 }
 
 String keyAnalyzer(char c)
