@@ -10,8 +10,8 @@ int messageAcc = 0;
 int previousTime = 0;
 int deltaTime = 0;
 
-String ipAddress = "127.0.0.1";
-//String ipAddress = "10.10.6.9"; // Linux dans le 1134
+//String ipAddress = "127.0.0.1";
+String ipAddress = "10.10.6.9"; // Linux dans le 1134
 
 int port = 32999;
 
