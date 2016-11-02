@@ -10,6 +10,7 @@ Delay serverTimer = new Delay(serverDelay);
 long previousTime = 0;
 long currentTime = 0;
 long deltaTime;
+long worldTime;
 int keyPressDelay = 250;
 //key management variable
 
@@ -26,6 +27,7 @@ void setup () {
 void draw() {
   currentTime = millis();
   deltaTime = currentTime - previousTime;
+  
   updateServer(deltaTime);
   background (255);
   
@@ -37,10 +39,11 @@ void draw() {
   
     
   //assure la loop no matter what
-  if(world.carnivores.size() == 0)
+  if(world.carnivores.size() == 0 || world.herbivores.size() == 0){
     world = new World();
-  if(world.herbivores.size() == 0)
-    world = new World();
+    
+  }
+ 
     
   keyPressTimer.update(deltaTime); 
   previousTime = currentTime; 
